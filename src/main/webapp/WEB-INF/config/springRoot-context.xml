@@ -46,7 +46,7 @@
 		<property name="properties">
 			<props>
 
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect
 				</prop>
 				<prop key="connection.pool_size">1</prop>
@@ -55,13 +55,11 @@
 		</property>
 	</bean>
 
-	<!-- <tx:annotation-driven transaction-manager="txManager" /> <bean id="txManager" 
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager"> <property 
-		name="sessionFactory" ref="sessionFactory" /> </bean> -->
-	<!-- <tx:annotation-driven transaction-manager="txManager" />
+	<tx:annotation-driven transaction-manager="txManager" />
 	<bean id="txManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> -->
+	</bean>
+	
 
 </beans>
