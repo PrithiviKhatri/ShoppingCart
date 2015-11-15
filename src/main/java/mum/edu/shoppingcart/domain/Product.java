@@ -22,6 +22,7 @@ public class Product {
 
 	int quantity;
 	
+
 	Double unitPrice;
 
 	@ManyToOne
