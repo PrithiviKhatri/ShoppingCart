@@ -30,6 +30,7 @@
 				<th>Quantity</th>
 				<th>Product</th>
 				<th>Price</th>
+			
 			</tr>
 
 			<c:forEach var="item" items="${cart.items}">
