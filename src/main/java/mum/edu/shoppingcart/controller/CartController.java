@@ -15,7 +15,7 @@ import mum.edu.shoppingcart.service.ProductService;
 
 @Controller
 @RequestMapping("/carts")
-@SessionAttributes({ "cart", "customer","loginFromCheckout" })
+@SessionAttributes({ "cart", "customer", "loginFromCheckout" })
 public class CartController {
 
 	@Autowired
@@ -41,8 +41,6 @@ public class CartController {
 
 	}
 
-	
-
 	@RequestMapping("/checkout")
 	public String checkoutToPayment(@ModelAttribute("cart") ShoppingCart shoppingcart, Model model) {
 		System.out.println("inside checkout to payment");
@@ -54,5 +52,21 @@ public class CartController {
 
 		System.out.println("cart is " + shoppingcart);
 		return "checkout";
+	}
+
+	
+	@RequestMapping(value="/checkoutStep2")
+	public String checkoutStep2() {
+		System.out.println("inside checkout Step2 ");
+
+		return "checkoutStep2";
+	}
+
+
+	@RequestMapping(value="/checkoutStep3")
+	public String checkoutStep3() {
+		System.out.println("inside checkout Step3 ");
+
+		return "checkoutStep3";
 	}
 }

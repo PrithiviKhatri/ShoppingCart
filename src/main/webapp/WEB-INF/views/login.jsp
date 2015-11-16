@@ -47,7 +47,7 @@
 								<input class="" type="submit" value="Login">
 							</fieldset>
 						</form>
-						<a href="customer/addCustomer">New Customer</a>
+						<a href="../customer/addCustomer">New Customer</a>
 
 					</div>
 				</div>

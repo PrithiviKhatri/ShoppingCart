@@ -5,6 +5,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
 <title>Online Shopping</title>
 
 </head>
@@ -42,10 +43,14 @@
 		<div align="right">
 			<b>Cart Total Amount: ${cart.totalamout} </b>
 		</div>
+
+		<spring:url value="/carts/checkoutStep2/" var="checkoutStep2">
+		</spring:url>
 		<div align="center">
-			<a href="carts/step2/">Next</a>
+			<a href="${checkoutStep2} ">Next</a>
 		</div>
 
 	</div>
+
 </body>
 </html>

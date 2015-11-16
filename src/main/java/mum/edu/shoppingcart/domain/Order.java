@@ -28,6 +28,46 @@ public class Order {
 	@OneToOne
 	Payment payment;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getShippingAdress() {
+		return shippingAdress;
+	}
+
+	public void setShippingAdress(String shippingAdress) {
+		this.shippingAdress = shippingAdress;
+	}
+
+	public Date getOrderedDate() {
+		return orderedDate;
+	}
+
+	public void setOrderedDate(Date orderedDate) {
+		this.orderedDate = orderedDate;
+	}
+
+	public OrderStatus getOrderstatus() {
+		return orderstatus;
+	}
+
+	public void setOrderstatus(OrderStatus orderstatus) {
+		this.orderstatus = orderstatus;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
 	
 	
 }
