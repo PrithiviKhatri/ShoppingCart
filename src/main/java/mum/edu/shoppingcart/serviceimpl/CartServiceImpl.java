@@ -29,7 +29,9 @@ public class CartServiceImpl implements CartService {
 				if (item.getProduct().getProductcode().equals(productcode)) {
 					int quanity = item.getQuanity();
 					item.setQuanity(++quanity);
-					item.setTotalprice(item.getTotalprice() * quanity);
+					double itemtotalprice = item.getTotalprice() * quanity;
+					cart.setTotalamout(cart.getTotalamout() - item.getTotalprice() + itemtotalprice);
+					item.setTotalprice(itemtotalprice);
 					return item;
 				}
 
@@ -38,11 +40,17 @@ public class CartServiceImpl implements CartService {
 		}
 
 		LineItem lineintem = new LineItem();
+		double carttotalprice = 0.0;
 		lineintem.setQuanity(1);
 		lineintem.setProduct(product);
 		lineintem.setTotalprice(product.getUnitPrice());
-
 		cart.getItems().add(lineintem);
+
+		for (LineItem lineItem : cart.getItems()) {
+			carttotalprice = carttotalprice + lineItem.getTotalprice();
+		}
+		System.out.println("carttotalprice is " + carttotalprice);
+		cart.setTotalamout(carttotalprice);
 		return lineintem;
 	}
 
@@ -50,6 +58,7 @@ public class CartServiceImpl implements CartService {
 		for (LineItem item : cart.getItems()) {
 			if (item.getProduct().getProductcode().equals(productcode)) {
 				cart.getItems().remove(item);
+				cart.setTotalamout(cart.getTotalamout() - item.getTotalprice());
 				return;
 			}
 		}

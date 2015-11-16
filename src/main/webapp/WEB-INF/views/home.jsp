@@ -19,7 +19,7 @@
 				<th>Product</th>
 				<th>Price</th>
 			</tr>
-		</c:if>
+		
 		<c:forEach var="item" items="${cart.items}">
 			<tr>
 				<td>${item.quanity}</td>
@@ -29,7 +29,13 @@
 						from Cart</a></td>
 
 			</tr>
+
+
 		</c:forEach>
+		<tr>
+			<td><b>Cart Total Amount: ${cart.totalamout} </b></td>
+		</tr>
+</c:if>
 	</table>
 	<br>
 	<br>

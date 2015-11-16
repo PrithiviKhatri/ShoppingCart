@@ -25,7 +25,6 @@ public class ProductDaoImpl implements ProductDao {
 				.createQuery("select p from Product p where p.productcode = :productcode");
 		query.setParameter("productcode", productcode);
 		List<Product> products=query.list();
-		System.out.println("products are "+products);
 		return (Product) query.list().get(0);
 	}
 }

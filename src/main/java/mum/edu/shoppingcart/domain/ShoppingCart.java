@@ -28,6 +28,8 @@ public class ShoppingCart implements Serializable {
 	@OneToMany
 	List<LineItem> items;
 
+	Double totalamout;
+	
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -42,6 +44,15 @@ public class ShoppingCart implements Serializable {
 
 	public void setItems(List<LineItem> items) {
 		this.items = items;
+	}
+
+	
+	public Double getTotalamout() {
+		return totalamout;
+	}
+
+	public void setTotalamout(Double totalamout) {
+		this.totalamout = totalamout;
 	}
 
 	@Override
