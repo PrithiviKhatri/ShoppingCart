@@ -8,7 +8,19 @@
 <title>Shopping just one click away</title>
 </head>
 <body>
-
+	<c:choose>
+		<c:when test="${empty customer}">
+			<div align="right">
+				<a href="<c:url value="/login"/>">Login</a>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div align="right">
+				<b>Welcome! You are logged in as ${customer} </b><i></i><br> <a
+					href="<c:url value="/logout"/>">Logout</a>
+			</div>
+		</c:otherwise>
+	</c:choose>
 	<table>
 		<c:if test="${not empty cart.items}">
 			<h1>Your Shopping cart</h1>
@@ -19,23 +31,28 @@
 				<th>Product</th>
 				<th>Price</th>
 			</tr>
-		
-		<c:forEach var="item" items="${cart.items}">
+
+			<c:forEach var="item" items="${cart.items}">
+				<tr>
+					<td>${item.quanity}</td>
+					<td>${item.product.name}</td>
+					<td>${item.totalprice}</td>
+					<td><a href="carts/remove/${item.product.productcode}">Remove
+							from Cart</a></td>
+
+				</tr>
+
+
+			</c:forEach>
 			<tr>
-				<td>${item.quanity}</td>
-				<td>${item.product.name}</td>
-				<td>${item.totalprice}</td>
-				<td><a href="carts/remove/${item.product.productcode}">Remove
-						from Cart</a></td>
-
+				<td><b>Cart Total Amount: ${cart.totalamout} </b></td>
 			</tr>
-
-
-		</c:forEach>
-		<tr>
-			<td><b>Cart Total Amount: ${cart.totalamout} </b></td>
-		</tr>
-</c:if>
+			<tr>
+				<td><h3>
+						<a href="carts/checkout">Proceed to Checkout</a>
+					</h3></td>
+			</tr>
+		</c:if>
 	</table>
 	<br>
 	<br>

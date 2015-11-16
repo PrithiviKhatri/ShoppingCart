@@ -22,6 +22,22 @@
 		<property name="order" value="2" />
 	</bean>
 
-	
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en_US" />
+	</bean>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/loginsuccess" />
+			<bean class="mum.edu.shoppingcart.interceptor.Logininterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

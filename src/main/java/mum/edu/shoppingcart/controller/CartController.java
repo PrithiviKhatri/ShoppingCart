@@ -2,6 +2,7 @@ package mum.edu.shoppingcart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,12 @@ import mum.edu.shoppingcart.service.ProductService;
 
 @Controller
 @RequestMapping("/carts")
-@SessionAttributes("cart")
+@SessionAttributes({ "cart", "customer","loginFromCheckout" })
 public class CartController {
 
 	@Autowired
 	ProductService productservice;
-	
+
 	@Autowired
 	CartService cartservice;
 
@@ -40,4 +41,18 @@ public class CartController {
 
 	}
 
+	
+
+	@RequestMapping("/checkout")
+	public String checkoutToPayment(@ModelAttribute("cart") ShoppingCart shoppingcart, Model model) {
+		System.out.println("inside checkout to payment");
+		if (!model.containsAttribute("customer")) {
+
+			model.addAttribute("loginFromCheckout", true);
+			return "login";
+		}
+
+		System.out.println("cart is " + shoppingcart);
+		return "checkout";
+	}
 }
