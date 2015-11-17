@@ -19,7 +19,7 @@ public class Account implements Serializable {
 	@GeneratedValue
 	Long id;
 
-	public  Account() {
+	public Account() {
 	}
 
 	@NotEmpty
@@ -27,10 +27,9 @@ public class Account implements Serializable {
 	String cardNo;
 
 	@NotEmpty
-	String billingAddress;
-
-	@NotEmpty
 	String cardtype;
+	@NotEmpty
+	String billingAddress;
 
 	@OneToMany(mappedBy = "account")
 	List<Payment> payments;

@@ -60,6 +60,7 @@
 			<input type="button" value="Add Account"
 				onclick="make_visible('formInput');return false;">
 		</div>
+	<div id="accountinfo" style="display:none"></div>
 
 		<spring:url value="/carts/checkoutStep3/" var="checkoutStep3">
 		</spring:url>
@@ -69,7 +70,6 @@
 
 	</div>
 
-	<div id="accountinfo"></div>
 
 
 	<!-- Success - or Validation errors -->

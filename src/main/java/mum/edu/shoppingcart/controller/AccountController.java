@@ -21,7 +21,7 @@ public class AccountController {
 
 	// @Valid - but NO BindResult! an exception will be thrown...
 	@RequestMapping(value = "/saveAccount", method = RequestMethod.POST)
-	public @ResponseBody Account saveAccount( @RequestBody Account account) {
+	public @ResponseBody Account saveAccount( @Valid @RequestBody Account account) {
 		System.out.println("inside save Account");
 		accountservice.saveAccount(account);
 		

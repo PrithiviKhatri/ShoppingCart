@@ -7,10 +7,19 @@ function accountSubmit() {
 		'data' : dataToSend,
 		'contentType' : 'application/json', // Sends
 
-		'success' : function() {
+		'success' : function(account) {
 			$('#errors').html("");
-			$("#result").append('<H3 align="center"> OKAY!! <H3>');
+			$('#success').html("");
+			$("#result").append('<H3 align="center"> Account Info Saved!! <H3>');
 			make_visible('result');
+		$("#accountinfo").html("");
+		$("#accountinfo").append('<br>Card Type ::  <b>'+account.cardtype+'</b>');
+		$("#accountinfo").append('<br>Card Number ::  <b>'+account.cardNo+'</b>');
+
+		$("#accountinfo").append('<br>Billing Adress::  <b>'+account.billingAddress+'</b>');
+
+		$("#accountinfo").append('<h4 align="left">');
+		make_visible('accountinfo');
 		},
 
 		'error' : function(errorObject) {
