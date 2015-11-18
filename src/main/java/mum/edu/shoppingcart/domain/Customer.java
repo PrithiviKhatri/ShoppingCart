@@ -1,13 +1,16 @@
 package mum.edu.shoppingcart.domain;
 
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Customer {
@@ -16,17 +19,23 @@ public class Customer {
 	@GeneratedValue
 	Long id;
 
+	@NotEmpty
 	String firstName;
 
+	@NotEmpty
 	String lastName;
 
 	Date dateOfBirth;
 
+	@NotEmpty
+	@Email
 	String emailAdress;
 
+	@NotEmpty
 	String address;
 
-	@OneToOne
+	@Valid
+	@OneToOne(cascade=CascadeType.ALL)
 	WebUser credential;
 
 	@OneToOne(mappedBy = "customer")

@@ -47,7 +47,9 @@
 								<input class="" type="submit" value="Login">
 							</fieldset>
 						</form>
-						<a href="../customer/addCustomer">New Customer</a>
+						<spring:url value="/customer/addCustomer" var="newCustomer">
+						</spring:url>
+						<a href="${newCustomer}">New Customer</a>
 
 					</div>
 				</div>

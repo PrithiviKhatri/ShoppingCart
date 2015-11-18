@@ -24,7 +24,7 @@ public class ShoppingCart implements Serializable {
 	@GeneratedValue
 	Long id;
 
-	Date creationDate;
+	Date creationDate=new Date();
 
 	@OneToMany(cascade=CascadeType.ALL)
 	List<LineItem> items;

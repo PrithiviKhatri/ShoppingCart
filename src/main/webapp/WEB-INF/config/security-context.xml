@@ -26,10 +26,12 @@
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
 		<!-- COMmENT out the following to see @Service METHOD level authorization -->
-		<!-- <security:intercept-url pattern="/account/**"
+		<security:intercept-url pattern="/account/**"
 			access="hasAnyRole('ROLE_CUSTOMER')" />
-		 -->	
 
+		<security:intercept-url pattern="/admin/**"
+			access="hasAnyRole('ROLE_ADMIN')" />
+			
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->
 		<!-- similarly username,password,Login-processing renames j_security_* 
@@ -49,19 +51,15 @@
 	</security:http>
 
 
-<!-- 	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:password-encoder hash="bcrypt" />
-			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select 
-				username,password,enabled from USERS where username=?" authorities-by-username-query="select 
-				u1.username, u2.authority from USERS u1, AUTHORITIES u2 where u1.username 
-				= u2.username and u1.username =?" />
-			<security:jdbc-user-service
-				data-source-ref="dataSource"
-				users-by-username-query="select username,password,1 from User where UserName=?"
-				authorities-by-username-query="select username,role from User where UserName =?" />
-		</security:authentication-provider>
-	</security:authentication-manager> -->
+	<!-- <security:authentication-manager> <security:authentication-provider> 
+		<security:password-encoder hash="bcrypt" /> <security:jdbc-user-service data-source-ref="dataSource" 
+		users-by-username-query="select username,password,enabled from USERS where 
+		username=?" authorities-by-username-query="select u1.username, u2.authority 
+		from USERS u1, AUTHORITIES u2 where u1.username = u2.username and u1.username 
+		=?" /> <security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select 
+		username,password,1 from User where UserName=?" authorities-by-username-query="select 
+		username,role from User where UserName =?" /> </security:authentication-provider> 
+		</security:authentication-manager> -->
 
 
 	<security:authentication-manager>

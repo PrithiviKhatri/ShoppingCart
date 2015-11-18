@@ -20,4 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerdao.fetchCustomer(username);
 	}
 
+	public void saveCustomer(Customer customer) {
+		customerdao.saveCustomer(customer);
+	}
+
 }

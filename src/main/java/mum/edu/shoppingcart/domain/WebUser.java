@@ -4,14 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class WebUser {
 
 	@Id
 	@GeneratedValue
 	Long id;
+	@NotEmpty
 	String username;
 
+	@NotEmpty
 	String password;
 
 	String role;

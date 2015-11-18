@@ -22,4 +22,10 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
+	public void saveCustomer(Customer customer) {
+		System.out.println("inside save customer");
+		sessionfactory.getCurrentSession().save(customer);
+
+	}
+
 }
