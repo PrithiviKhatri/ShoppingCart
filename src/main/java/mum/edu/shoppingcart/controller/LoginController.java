@@ -11,20 +11,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import mum.edu.shoppingcart.domain.Customer;
 import mum.edu.shoppingcart.domain.Product;
 import mum.edu.shoppingcart.domain.ShoppingCart;
+import mum.edu.shoppingcart.service.CustomerService;
 import mum.edu.shoppingcart.service.ProductService;
 
 @Controller
-@SessionAttributes({"customer","cart","loginFromCheckout"})
+@SessionAttributes({ "customer", "cart", "loginFromCheckout" })
 public class LoginController {
 
 	@Autowired
-	ProductService productService;
+	ProductService productservice;
+	@Autowired
+	CustomerService customerservice;
 
 	@ModelAttribute("products")
 	public List<Product> getAllproducts() {
-		return productService.getAllProducts();
+		return productservice.getAllProducts();
 	}
 
 	@RequestMapping("/")
@@ -38,17 +42,20 @@ public class LoginController {
 	}
 
 	@RequestMapping("/loginsuccess")
-	public String loginsuccess(Model model) {
+	public String loginsuccess(@ModelAttribute("customer") String username, Model model) {
 		System.out.println("inside loginsuccess ");
+		System.out.println("username of customer is: " + username);
+		Customer customer = customerservice.fetchCustomer(username);
+		model.addAttribute(customer);
 		if (model.containsAttribute("loginFromCheckout")) {
 
 			return "checkout";
 		}
-		
+
 		return "redirect:/";
-	
+
 	}
-	
+
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(Model model) {
 		System.out.println("inside login falied");

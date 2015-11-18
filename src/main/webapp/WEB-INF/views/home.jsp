@@ -16,7 +16,8 @@
 		</c:when>
 		<c:otherwise>
 			<div align="right">
-				<b>Welcome! You are logged in as ${customer} </b><i></i><br> <a
+				<b>Welcome! You are logged in as ${customer.firstName}
+					${customer.lastName} </b><i></i><br> <a
 					href="<c:url value="/logout"/>">Logout</a>
 			</div>
 		</c:otherwise>
@@ -30,7 +31,7 @@
 				<th>Quantity</th>
 				<th>Product</th>
 				<th>Price</th>
-			
+
 			</tr>
 
 			<c:forEach var="item" items="${cart.items}">

@@ -1,5 +1,7 @@
 package mum.edu.shoppingcart.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,16 +13,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CustomerOrder")
+@Table(name = "CustomerOrder")
 public class Order {
 
 	@Id
 	@GeneratedValue
 	Long id;
 
+	
+
 	String shippingAdress;
 
-	Date orderedDate;
+	Date orderedDate=new Date();
 
 	@Enumerated(EnumType.STRING)
 	OrderStatus orderstatus;
@@ -68,6 +72,4 @@ public class Order {
 		this.payment = payment;
 	}
 
-	
-	
 }

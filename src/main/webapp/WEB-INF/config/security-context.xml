@@ -26,11 +26,9 @@
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
 		<!-- COMmENT out the following to see @Service METHOD level authorization -->
-		<security:intercept-url pattern="/account/**"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')" />
-		<security:intercept-url pattern="/professor"
-			access="hasRole('ROLE_PROFESSOR')" />
-		
+		<!-- <security:intercept-url pattern="/account/**"
+			access="hasAnyRole('ROLE_CUSTOMER')" />
+		 -->	
 
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->

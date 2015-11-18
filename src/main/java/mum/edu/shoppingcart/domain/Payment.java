@@ -1,5 +1,6 @@
 package mum.edu.shoppingcart.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Payment {
 	@ManyToOne
 	Account account;
 
-	@OneToOne(mappedBy="payment")
+	@OneToOne(mappedBy="payment",cascade=CascadeType.ALL)
 	Order order;
 
 	public Long getId() {
@@ -61,6 +62,11 @@ public class Payment {
 
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+
+	@Override
+	public String toString() {
+		return "Payment [total=" + total + ", comments=" + comments + "]";
 	}
 	
 }

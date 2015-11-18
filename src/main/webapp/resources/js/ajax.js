@@ -10,7 +10,7 @@ function accountSubmit() {
 		'success' : function(account) {
 			$('#errors').html("");
 			$('#success').html("");
-			$("#result").append('<H3 align="center"> Account Info Saved!! <H3>');
+			$("#success").append('<H3 align="center"> Account Info Saved!! <H3>');
 			make_visible('result');
 		$("#accountinfo").html("");
 		$("#accountinfo").append('<br>Card Type ::  <b>'+account.cardtype+'</b>');

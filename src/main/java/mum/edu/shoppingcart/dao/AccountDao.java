@@ -4,6 +4,7 @@ import mum.edu.shoppingcart.domain.Account;
 
 public interface AccountDao {
 
-	public Account saveAccount(Account account);
-	
+	public void saveAccount(Account account);
+	public Account getAccount(String cardNo);
+
 }

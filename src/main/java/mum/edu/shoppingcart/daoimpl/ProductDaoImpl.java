@@ -24,7 +24,6 @@ public class ProductDaoImpl implements ProductDao {
 		Query query = sessionfactory.getCurrentSession()
 				.createQuery("select p from Product p where p.productcode = :productcode");
 		query.setParameter("productcode", productcode);
-		List<Product> products=query.list();
 		return (Product) query.list().get(0);
 	}
 }

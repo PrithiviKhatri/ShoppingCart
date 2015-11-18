@@ -32,8 +32,10 @@ public class Customer {
 	@OneToOne(mappedBy = "customer")
 	Account account;
 
-	@OneToMany
-	List<ShoppingCart> carts;
+	//These are commented as  of now .This cart are supposed to be carts which customers havenot
+	//ordered.These are wish carts.Ordered carts are saved to account of the customer.
+	//@OneToMany
+	//List<ShoppingCart> wishcarts;
 
 	public Long getId() {
 		return id;
@@ -99,12 +101,21 @@ public class Customer {
 		this.account = account;
 	}
 
-	public List<ShoppingCart> getCarts() {
-		return carts;
+	
+
+//	public List<ShoppingCart> getWishcarts() {
+//		return wishcarts;
+//	}
+//
+//	public void setWishcarts(List<ShoppingCart> wishcarts) {
+//		this.wishcarts = wishcarts;
+//	}
+
+	@Override
+	public String toString() {
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
+				+ ", emailAdress=" + emailAdress + ", address=" + address + "]";
 	}
 
-	public void setCarts(List<ShoppingCart> carts) {
-		this.carts = carts;
-	}
-
+	
 }

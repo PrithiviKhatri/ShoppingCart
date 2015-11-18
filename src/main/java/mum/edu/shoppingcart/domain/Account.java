@@ -1,8 +1,10 @@
 package mum.edu.shoppingcart.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Account implements Serializable {
@@ -31,13 +35,16 @@ public class Account implements Serializable {
 	@NotEmpty
 	String billingAddress;
 
-	@OneToMany(mappedBy = "account")
-	List<Payment> payments;
+	@JsonIgnore 
+	@OneToMany(mappedBy = "account",cascade=CascadeType.ALL)
+	List<Payment> payments=new ArrayList<Payment>();
 
-	@OneToMany
-	List<ShoppingCart> carts;
+	@JsonIgnore 
+	@OneToMany(cascade=CascadeType.ALL)
+	List<ShoppingCart> carts=new ArrayList<ShoppingCart>();
 
-	@OneToOne
+	@JsonIgnore 
+	@OneToOne(cascade=CascadeType.ALL)
 	Customer customer;
 
 	public Long getId() {
@@ -94,6 +101,11 @@ public class Account implements Serializable {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [cardNo=" + cardNo + ", cardtype=" + cardtype + ", billingAddress=" + billingAddress + "]";
 	}
 
 }

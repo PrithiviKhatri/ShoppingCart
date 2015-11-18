@@ -27,7 +27,7 @@ public class CartController {
 	@RequestMapping(value = "/add/{productcode}")
 	public String addToCart(@PathVariable String productcode, @ModelAttribute("cart") ShoppingCart cart) {
 		System.out.println("inside add to cart");
-		LineItem lineitem = cartservice.addToCart(productcode, cart);
+		cartservice.addToCart(productcode, cart);
 
 		return "redirect:/";
 
@@ -54,19 +54,18 @@ public class CartController {
 		return "checkout";
 	}
 
-	
-	@RequestMapping(value="/checkoutStep2")
+	@RequestMapping(value = "/checkoutStep2")
 	public String checkoutStep2() {
 		System.out.println("inside checkout Step2 ");
 
 		return "checkoutStep2";
 	}
 
-
-	@RequestMapping(value="/checkoutStep3")
-	public String checkoutStep3() {
-		System.out.println("inside checkout Step3 ");
-
-		return "checkoutStep3";
+	@RequestMapping(value = "/homePageAfterOrder")
+	public String homepageafterorder(Model model) {
+		System.out.println("inside homepageafterorder ");
+		model.asMap().remove("cart");
+		return "redirect:/";
 	}
+
 }

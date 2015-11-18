@@ -89,17 +89,29 @@
 			<version>3.2.5.RELEASE</version>
 		</dependency>
 		<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-validator</artifactId>
-  		<version>5.0.1.Final</version>
-  	</dependency>
-	
-	<dependency>
-	    <groupId>com.fasterxml.jackson.jaxrs</groupId>
-	    <artifactId>jackson-jaxrs-base</artifactId>
-	    <version>2.4.4</version>
-	</dependency>
-	
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-base</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.5</version>
+		</dependency>
+
+
 	</dependencies>
 
 

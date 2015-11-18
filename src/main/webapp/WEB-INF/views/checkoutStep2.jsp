@@ -9,9 +9,7 @@
 	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript"
 	src="<spring:url value="/resource/js/ajax.js"/>"></script>
-<style type="text/css">
-@import url("<spring:url value="/css/main.css"/>");
-</style>
+<style type="text/css">@import url("<spring:url value="/css/main.css"/>");</style>
 
 <title>Online Shopping</title>
 
@@ -20,10 +18,13 @@
 
 	<div align="left">
 		<p>
-			<b>Billed to : ${customer}</b>
+			Billed to :<b> ${customer.firstName} ${customer.lastName}</b>
 		</p>
 		<p>
-			<b>Billed Amount:${cart.totalamout} </b>
+			Billed Amount: <b>${cart.totalamout} </b>
+		</p>
+		<p>
+			Shipping Address: <b>${customer.address}</b>
 		</p>
 	</div>
 
@@ -60,15 +61,34 @@
 			<input type="button" value="Add Account"
 				onclick="make_visible('formInput');return false;">
 		</div>
-	<div id="accountinfo" style="display:none"></div>
-
-		<spring:url value="/carts/checkoutStep3/" var="checkoutStep3">
-		</spring:url>
-		<div align="center">
-			<a href="${checkoutStep3}">Next</a>
+		<div id="accountinfo">
+		<br>Card Type ::  <b>${customer.account.cardtype}</b>
+		<br>Card Number ::  <b>${customer.account.cardNo}</b>
+       <br>Billing Adress::  <b>${customer.account.billingAddress}</b>
+		
 		</div>
+		<div></div>
 
 	</div>
+
+	<spring:url value="/account/checkoutStep3Payment/" var="checkoutStep3">
+	</spring:url>
+	<div align="center">
+		<form action="${checkoutStep3}" method="post">
+			<div align="left">
+				<p>
+					<b>Add Notes:</b>
+				</p>
+				<textarea rows="4" cols="50" name="comments"></textarea>
+			</div>
+			<input type="submit" value="Proceed For Payment" />
+		</form>
+
+
+	</div>
+
+
+
 
 
 
