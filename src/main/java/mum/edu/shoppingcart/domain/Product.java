@@ -1,32 +1,56 @@
 package mum.edu.shoppingcart.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
 
 	@Id
 	@GeneratedValue
-	Long id;
+	private Long id;
+	@Size(min=3,max=5,message="ProductCode must be greater that 3 and less than equals to 5")
+	private String productcode;
+	@NotEmpty
+	private String name;
+	@NotEmpty
+	private String description;
 
-	String productcode;
-
-	String name;
-
-	String description;
-
-	Byte[] image;
-
-	int quantity;
+	private String image;
 	
+	@NotNull
+	private int quantity;
+	@NotNull
+	private Double unitPrice;
 
-	Double unitPrice;
+	@Lob
+	@Column(name = "cover_image")
+	private byte[] coverImage;
+	
+	public byte[] getCoverImage() {
+		return coverImage;
+	}
+
+	public void setCoverImage(byte[] coverImage) {
+		this.coverImage = coverImage;
+	}
+
 
 	@ManyToOne
-	Category category;
+	private Category category;
+
+	@Transient
+	private MultipartFile productImage;
 
 	public Long getId() {
 		return id;
@@ -52,6 +76,14 @@ public class Product {
 		this.name = name;
 	}
 
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -60,11 +92,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public Byte[] getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -92,4 +124,11 @@ public class Product {
 		this.category = category;
 	}
 
+	
+	@Override
+	public String toString() {
+		return String.format("{\"name\": \"%s\", " + "\"description\": \"%s\", " + "\"quantity\": \"%s\", " + "\"unitPrice\": \"%s\"," + "\"image\": \"%s\", " + "\"productcode\": \"%s\"}", getName(), getDescription(),getQuantity(),getUnitPrice(),getImage(),getProductcode());
+
+	}
 }
+

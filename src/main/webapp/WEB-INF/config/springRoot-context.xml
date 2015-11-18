@@ -15,11 +15,16 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-
+	<import resource="internationalization-config.xml" />
+	<mvc:resources  location="/resources/"  mapping="/resource/**"/>
 
 	<context:component-scan base-package="mum.edu.shoppingcart.serviceimpl" />
 	<context:component-scan base-package="mum.edu.shoppingcart.daoimpl" />
-
+	
+	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	  <property name="maxUploadSize" value="10240000"/>
+	<!--property name="restrictFileTypes" value="pdf"/--> 
+	</bean>
 	<!-- Hibernate SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -37,7 +42,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/shoppingcart" />
 		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="password" value="admin" />
 	</bean>
 
 	<!-- hibernate Properties -->

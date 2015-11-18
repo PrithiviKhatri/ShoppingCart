@@ -21,5 +21,19 @@
 	</c:forEach>
 	</table>
 	
+	Schedular
+	
+	 <table>
+	<c:forEach var="singleproduct" items="${productObj}">
+	<tr>
+		<td>${singleproduct.productcode}</td>
+		<td>${singleproduct.name}</td>
+		<td>${singleproduct.description}</td>
+		<td>${singleproduct.unitPrice}</td>
+		<td>qqq</td>
+	</tr>
+	</c:forEach>
+	</table> 
+	
 </body>
 </html>

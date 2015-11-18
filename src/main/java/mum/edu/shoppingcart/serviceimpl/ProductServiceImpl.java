@@ -22,4 +22,29 @@ public class ProductServiceImpl implements ProductService {
 		return productdao.getAllProducts();
 	}
 
+	public void addProduct(Product product) {
+		productdao.addProduct(product);
+		
+	}
+
+	public void deleteProduct(Long productId) {
+		productdao.deleteProduct(productId);
+		
+	}
+
+	public void editProduct(Product product) {
+		productdao.editProduct(product);
+		
+	}
+
+	public Product getUniqueProduct(Long productId) {
+		return productdao.getProduct(productId);
+	}
+
+	public List<Product> getProductsById(Long id) {
+		return productdao.getProductsById(id);
+	}
+	
+	
+
 }
