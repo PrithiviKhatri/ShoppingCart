@@ -25,10 +25,13 @@ public class ProductServiceImpl implements ProductService {
 		return productdao.getAllProducts();
 	}
 
+<<<<<<< HEAD
 	public Product getProduct(String productcode) {
 		return productdao.getProduct(productcode);
 	}
-public void addProduct(Product product) {
+
+=======
+	public void addProduct(Product product) {
 		productdao.addProduct(product);
 		
 	}
@@ -52,5 +55,6 @@ public void addProduct(Product product) {
 	}
 	
 	
+>>>>>>> 07c4012545e7154c1ecea95a4aa785681ca8fdf9
 
 }

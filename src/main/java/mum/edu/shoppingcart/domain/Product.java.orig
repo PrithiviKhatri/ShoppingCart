@@ -124,11 +124,19 @@ public class Product {
 		this.category = category;
 	}
 
+<<<<<<< HEAD
+	@Override
+	public String toString() {
+		return "Product [productcode=" + productcode + ", name=" + name + "]";
+	}
+
+=======
 	
 	@Override
 	public String toString() {
 		return String.format("{\"name\": \"%s\", " + "\"description\": \"%s\", " + "\"quantity\": \"%s\", " + "\"unitPrice\": \"%s\"," + "\"image\": \"%s\", " + "\"productcode\": \"%s\"}", getName(), getDescription(),getQuantity(),getUnitPrice(),getImage(),getProductcode());
 
 	}
+>>>>>>> 07c4012545e7154c1ecea95a4aa785681ca8fdf9
 }
 

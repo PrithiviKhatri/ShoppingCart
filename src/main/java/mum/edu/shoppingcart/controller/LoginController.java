@@ -46,6 +46,10 @@ public class LoginController {
 		System.out.println("inside loginsuccess ");
 		System.out.println("username of customer is: " + username);
 		Customer customer = customerservice.fetchCustomer(username);
+		
+		if (customer.getCredential().getRole().equals("ROLE_ADMIN")){
+			return "redirect:admin/addCategory";
+		}
 		model.addAttribute(customer);
 		if (model.containsAttribute("loginFromCheckout")) {
 

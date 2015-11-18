@@ -18,10 +18,15 @@
        http://www.springframework.org/schema/aop 
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
+<<<<<<< HEAD
+
+<context:component-scan base-package="mum.edu.shoppingcart.serviceimpl" />
+=======
 	<import resource="internationalization-config.xml" />
 	<mvc:resources  location="/resources/"  mapping="/resource/**"/>
 
-<context:component-scan base-package="mum.edu.shoppingcart.serviceimpl" />
+	<context:component-scan base-package="mum.edu.shoppingcart.serviceimpl" />
+>>>>>>> 07c4012545e7154c1ecea95a4aa785681ca8fdf9
 	<context:component-scan base-package="mum.edu.shoppingcart.daoimpl" />
 	
 	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -45,7 +50,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/shoppingcart" />
 		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="password" value="admin" />
 	</bean>
 
 	<!-- hibernate Properties -->
