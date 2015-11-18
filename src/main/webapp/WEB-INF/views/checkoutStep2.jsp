@@ -9,12 +9,14 @@
 	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript"
 	src="<spring:url value="/resource/js/ajax.js"/>"></script>
-<style type="text/css">@import url("<spring:url value="/css/main.css"/>");</style>
+<style type="text/css">
+@import url("<spring:url value="/css/main.css"/>");</style>
 
 <title>Online Shopping</title>
 
 </head>
 <body>
+	<%@ include file="headerClient.jsp"%>
 
 	<div align="left">
 		<p>
@@ -62,10 +64,10 @@
 				onclick="make_visible('formInput');return false;">
 		</div>
 		<div id="accountinfo">
-		<br>Card Type ::  <b>${customer.account.cardtype}</b>
-		<br>Card Number ::  <b>${customer.account.cardNo}</b>
-       <br>Billing Adress::  <b>${customer.account.billingAddress}</b>
-		
+			<br>Card Type :: <b>${customer.account.cardtype}</b> <br>Card
+			Number :: <b>${customer.account.cardNo}</b> <br>Billing Adress::
+			<b>${customer.account.billingAddress}</b>
+
 		</div>
 		<div></div>
 
@@ -107,10 +109,11 @@
 
 
 			<p>
+			
 				<label for="cardtype"> Card Type :</label> <input type="radio"
-					name="cardtype" value="visa">VISA<br> <input
-					type="radio" name="cardtype" value="mastercard">MasterCard
-
+					name="cardtype" value="visa">VISA
+					 <input type="radio" name="cardtype" value="mastercard">MasterCard
+			
 
 			</p>
 
@@ -137,5 +140,7 @@
 		</h4>
 
 	</div>
+	<%@ include file="footerClient.jsp"%>
+
 </body>
 </html>

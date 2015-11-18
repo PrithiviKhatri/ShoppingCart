@@ -10,6 +10,8 @@
 
 </head>
 <body>
+	<%@ include file="headerClient.jsp"%>
+
 	<div align=center>
 		<a href="/ShoppingCart">Continue Shopping</a>
 	</div>
@@ -19,7 +21,7 @@
 		<%
 			int sn = 0;
 		%>
-		<table border="" style="width: 100%">
+		<table border="" style="width: 100%, min-height=300px">
 			<tr>
 				<th>SN</th>
 				<th>Product</th>
@@ -51,6 +53,7 @@
 		</div>
 
 	</div>
+	<%@ include file="footerClient.jsp"%>
 
 </body>
 </html>

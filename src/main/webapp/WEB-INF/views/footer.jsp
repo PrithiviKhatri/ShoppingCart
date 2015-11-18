@@ -1,4 +1,4 @@
-<div style="border:1px solid gray;background:#999999;height:100px;position:absolute;bottom:0px;width:100%">
+<div style="border:1px solid gray;background:#999999;height:100px;width:100%">
 <p style="text-align:center;font-family:Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#FFFFFF;">Online Shopping. &copy; 2015</p>
 </div>
 <style>

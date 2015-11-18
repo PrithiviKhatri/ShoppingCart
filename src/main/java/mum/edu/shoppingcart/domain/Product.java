@@ -27,7 +27,20 @@ public class Product {
 	private String description;
 
 	private String image;
+
+	@Transient
+	private String imageFile;
+
 	
+	public String getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(String imageFile) {
+		this.imageFile = imageFile;
+	}
+
+
 	@NotNull
 	private int quantity;
 	@NotNull

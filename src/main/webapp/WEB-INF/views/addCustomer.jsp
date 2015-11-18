@@ -10,6 +10,8 @@
 <title>Customer Registration</title>
 </head>
 <body>
+		<%@ include file="headerClient.jsp"%>
+	
 	<spring:url value="/customer/saveCustomer" var="saveCustomer">
 	</spring:url>
 	<section class="container">
@@ -106,5 +108,7 @@
 			</fieldset>
 		</form:form>
 	</section>
+	<%@ include file="footerClient.jsp"%>
+
 </body>
 </html>

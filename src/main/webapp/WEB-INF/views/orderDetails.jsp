@@ -10,18 +10,13 @@
 <script type="text/javascript"
 	src="<spring:url value="/resource/js/ajax.js"/>"></script>
 <style type="text/css">
-@import
-url(
-"<spring:url value="
-/
-css
-/main.css"/>");
-</style>
+@import url("<spring:url value="/css/main.css"/>");</style>
 
 <title>Online Shopping</title>
 
 </head>
 <body>
+	<%@ include file="headerClient.jsp"%>
 
 
 	<div align="left">
@@ -75,6 +70,7 @@ css
 		<a href="${afterOrder}">Continue Shopping</a>
 	</div>
 
+	<%@ include file="footerClient.jsp"%>
 
 </body>
 </html>
