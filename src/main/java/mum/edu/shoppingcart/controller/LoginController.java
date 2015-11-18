@@ -84,7 +84,6 @@ public class LoginController {
 
 	@RequestMapping(value = "/{catId}", method = RequestMethod.GET)
 	public String listCategory(@PathVariable("catId") Long catId, Model model) {
-		System.out.println("sasa");
 		List<Product> product = productservice.getProductsById(catId);
 		model.addAttribute("products", product);
 		return "home";

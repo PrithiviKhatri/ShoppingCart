@@ -61,7 +61,7 @@ function makeAjaxCall(id){
 					
 					<td>${product.name}</td>
 					<td>${product.quantity}</td>
-					<td><img src='data:image/jpg;base64,${product.coverImage}' /></td>
+					<td><img src='data:image/jpg;base64,${product.imageFile}' /></td>
 					<td><a href="editProduct/${product.id}">Edit</a> | 
 					<a href="deleteProduct/${product.id}">Delete</a> |
 					<a href="#" onclick="makeAjaxCall(${product.id})">Details</a>

@@ -64,7 +64,7 @@ public class CartController {
 	@RequestMapping(value = "/homePageAfterOrder")
 	public String homepageafterorder(Model model) {
 		System.out.println("inside homepageafterorder ");
-		model.asMap().remove("cart");
+		model.addAttribute("cart", new ShoppingCart());
 		return "redirect:/";
 	}
 
