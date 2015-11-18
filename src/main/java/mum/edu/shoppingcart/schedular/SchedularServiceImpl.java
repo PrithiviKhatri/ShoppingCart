@@ -20,7 +20,7 @@ public class SchedularServiceImpl implements SchedularService {
 @Autowired
 ProductService productService;
 
-    //@Scheduled(cron="0/7 * * * * *")
+    @Scheduled(cron="0/7 * * * * *")
     public void getStocks() {
         Date date = Calendar.getInstance().getTime();
         DateFormat timeFormatter = DateFormat.getTimeInstance(DateFormat.DEFAULT);

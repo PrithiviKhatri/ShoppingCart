@@ -54,6 +54,10 @@ public class Product {
 		return coverImage;
 	}
 
+	public byte[] getCoverItoStringmage() {
+		return coverImage;
+	}
+
 	public void setCoverImage(byte[] coverImage) {
 		this.coverImage = coverImage;
 	}
@@ -88,7 +92,7 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public MultipartFile getProductImage() {
 		return productImage;
 	}
